@@ -5,7 +5,7 @@ class ApiEndPoints {
 }
 
 class _AuthEndPoints {
-  final String register= 'users';
+  final String register = 'users';
   final String login = 'auth/user';
   final String logout = 'auth/logout';
   final String lazy_load= 'beranda';

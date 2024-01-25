@@ -36,10 +36,10 @@ class ProfileController extends GetxController {
 
       if (response.statusCode == 200) {
         final userData = json.decode(response.body)['data'];
-        username.value = userData['username'] ?? '';
-        email.value = userData['email'] ?? '';
-        usernameController.text = username.value;
-        emailController.text = email.value;
+          username.value = userData['username'] ?? '';
+          email.value = userData['email'] ?? '';
+          usernameController.text = username.value;
+          emailController.text = email.value;
       } else {
         throw Exception('Failed to load user data');
       }

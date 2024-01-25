@@ -35,7 +35,8 @@ class RegisterationController extends GetxController {
           nameController.clear();
           emailController.clear();
           passwordController.clear();
-          Get.off(Home());
+          Get.snackbar('Success', 'Berhasil registrasi!');
+
         } else {
           throw jsonDecode(response.body)["errors"] ?? "Unknown Error Occured";
         }

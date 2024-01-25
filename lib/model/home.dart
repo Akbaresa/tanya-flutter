@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/controllers/login_controller.dart';
+import 'package:flutter_application_1/screen/auth/widget/chat_screen.dart';
 import 'package:flutter_application_1/screen/auth/widget/profil.dart';
 import 'package:flutter_application_1/utils/api_endpoints.dart';
 import 'package:get/get.dart';
@@ -134,6 +135,15 @@ class _HomeState extends State<Home> {
             },
             child: const Text(
               'profil',
+              style: TextStyle(color: Colors.white),
+            )),
+          TextButton(
+            onPressed: () async {
+              final SharedPreferences? prefs = await _prefs;
+              Get.off(ChatScreen());
+            },
+            child: const Text(
+              'chat',
               style: TextStyle(color: Colors.white),
             )),
           IconButton(
