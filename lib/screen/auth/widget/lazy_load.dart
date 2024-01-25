@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/controllers/pertanyaan_controller.dart';
 import 'package:flutter_application_1/model/lazy_load.dart';
 import 'package:flutter_application_1/page/detail.dart';
 import 'package:get/get.dart';
@@ -19,7 +18,6 @@ class _Lazy_loadCardState extends State<Lazy_loadCard> {
   bool isExpanded = false;
   TextEditingController commentController = TextEditingController();
   KomentarController komentarController = Get.put(KomentarController());
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +98,7 @@ class _Lazy_loadCardState extends State<Lazy_loadCard> {
                 onPressed: () async {
                 print(commentController.text);
                 await komentarController.tambahKomentar(commentController.text, widget.posts.id);
-                  }
+                }
                 ,
                 child: const Text('Submit Comment'),
               ),

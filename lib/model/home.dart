@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/controllers/login_controller.dart';
 import 'package:flutter_application_1/screen/auth/widget/chat_screen.dart';
+import 'package:flutter_application_1/screen/auth/widget/login_screen.dart';
 import 'package:flutter_application_1/screen/auth/widget/profil.dart';
 import 'package:flutter_application_1/utils/api_endpoints.dart';
 import 'package:get/get.dart';
@@ -9,10 +10,8 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_application_1/model/lazy_load.dart';
 import 'package:flutter_application_1/screen/auth/widget/lazy_load.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../controllers/pertanyaan_controller.dart';
-import '../screen/auth/auth_screen.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -24,7 +23,6 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final LoginController loginController = Get.put(LoginController());
   final PertanyaanController pertanyaanController = Get.put(PertanyaanController());
-  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   late ScrollController _scrollController;
   late List<Lazy_load> _loadedPosts;
   late bool _isLoading;
@@ -130,7 +128,6 @@ class _HomeState extends State<Home> {
           ),
           TextButton(
             onPressed: () async {
-              final SharedPreferences? prefs = await _prefs;
               Get.off(ProfilScreen());
             },
             child: const Text(
@@ -139,11 +136,18 @@ class _HomeState extends State<Home> {
             )),
           TextButton(
             onPressed: () async {
-              final SharedPreferences? prefs = await _prefs;
               Get.off(ChatScreen());
             },
             child: const Text(
               'chat',
+              style: TextStyle(color: Colors.white),
+            )),
+          TextButton(
+            onPressed: () async {
+              Get.off(LoginScreen());
+            },
+            child: const Text(
+              'havidz',
               style: TextStyle(color: Colors.white),
             )),
           IconButton(
